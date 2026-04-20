@@ -1,0 +1,51 @@
+openapi: 3.1.0
+info:
+  title: MeAndQi Patterns Session Proxy API
+  version: 1.1.0
+  description: API proxy para acessar padrões do MeAndQi.
+servers:
+  - url: https://SEU-APP.onrender.com
+    description: Produção
+security:
+  - ProxyApiKey: []
+paths:
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Verifica se a API está ativa
+      responses:
+        '200':
+          description: API disponível
+  /auth/status:
+    get:
+      operationId: authStatus
+      summary: Verifica status da configuração
+      responses:
+        '200':
+          description: Status retornado
+  /patterns:
+    get:
+      operationId: listPatterns
+      summary: Lista padrões
+      responses:
+        '200':
+          description: Lista de padrões
+  /patterns/{slug}:
+    get:
+      operationId: getPattern
+      summary: Obtém detalhes de um padrão
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalhes do padrão
+components:
+  securitySchemes:
+    ProxyApiKey:
+      type: apiKey
+      in: header
+      name: x-api-key

@@ -1,0 +1,17 @@
+{
+  "name": "meandqi-patterns-proxy",
+  "version": "1.2.0",
+  "description": "Proxy API para consultar padrões do MeAndQi",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.21.2"
+  }
+}

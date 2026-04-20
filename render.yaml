@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: meandqi-patterns-proxy
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: BASE_URL
+        value: https://www.meandqi.com
+      - key: API_KEY
+        value: sua-chave-da-action
